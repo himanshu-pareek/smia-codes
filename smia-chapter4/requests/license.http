@@ -1,0 +1,11 @@
+PUT http://localhost:8080/v1/organization/abcd/license
+Accept-Language: es
+Content-Type: application/json
+
+{
+    "id": 1,
+    "licenseId": "anfohson",
+    "description": "First license",
+    "productName": "Software Product",
+    "licenseType": "Enterprises"
+}
