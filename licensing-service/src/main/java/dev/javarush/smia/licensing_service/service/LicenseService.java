@@ -1,4 +1,4 @@
-package dev.javarush.smia.smia_chapter4.service;
+package dev.javarush.smia.licensing_service.service;
 
 import java.util.Locale;
 import java.util.Random;
@@ -6,7 +6,7 @@ import java.util.Random;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 
-import dev.javarush.smia.smia_chapter4.model.License;
+import dev.javarush.smia.licensing_service.model.License;;
 
 @Service
 public class LicenseService {

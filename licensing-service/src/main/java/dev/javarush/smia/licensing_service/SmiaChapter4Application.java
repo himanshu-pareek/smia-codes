@@ -1,4 +1,4 @@
-package dev.javarush.smia.smia_chapter4;
+package dev.javarush.smia.licensing_service;
 
 import java.util.Locale;
 

@@ -1,4 +1,4 @@
-package dev.javarush.smia.smia_chapter4.controller;
+package dev.javarush.smia.licensing_service.controller;
 
 import java.util.Locale;
 
@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import dev.javarush.smia.smia_chapter4.model.License;
-import dev.javarush.smia.smia_chapter4.service.LicenseService;
+import dev.javarush.smia.licensing_service.model.License;
+import dev.javarush.smia.licensing_service.service.LicenseService;
 
 @RestController
 @RequestMapping(value = "v1/organization/{organizationId}/license")

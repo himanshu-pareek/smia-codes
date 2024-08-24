@@ -1,4 +1,4 @@
-package dev.javarush.smia.smia_chapter4.model;
+package dev.javarush.smia.licensing_service.model;
 
 public record License(
     int id,

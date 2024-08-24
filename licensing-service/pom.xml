@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>dev.javarush.smia</groupId>
-	<artifactId>smia-chapter4</artifactId>
+	<artifactId>licensing-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>smia-chapter4</name>
-	<description>Demo project for Spring Boot</description>
+	<name>Licensing Service</name>
+	<description>Licensing Service for Sprng Microservices in Action</description>
 	<url/>
 	<licenses>
 		<license/>
