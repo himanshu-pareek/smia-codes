@@ -1,0 +1,59 @@
+services:
+  database:
+    image: "postgres:12.20-bullseye"
+    ports:
+      - "5432:5432"
+
+    environment:
+      POSTGRES_USER: dev
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: ostock_dev
+
+    volumes:
+      - "./init.sql:/docker-entrypoint-initdb.d/1-init.sql"
+      - "./data.sql:/docker-entrypoint-initdb.d/2-data.sql"
+
+    networks:
+      backend:
+        aliases:
+          - "database"
+
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U dev"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  configserver:
+    image: ostock/configserver:0.0.1-SNAPSHOT
+    ports:
+      - "8071:8071"
+
+    environment:
+      SERVER_PORT: 8071
+
+    networks:
+      backend:
+        aliases:
+          - "configserver"
+
+  licensingservice:
+    image: ostock/licensing-service:0.0.1-SNAPSHOT
+    ports:
+      - "8081:8081"
+    environment:
+      SERVER_PORT: 8081
+      SPRING_PROFILES_ACTIVE: dev
+      SPRING_CLOUD_CONFIG_URI: http://configserver:8071
+    depends_on:
+      database:
+        condition: service_healthy
+      configserver:
+        condition: service_started
+    networks:
+      - backend
+
+
+networks:
+  backend:
+    driver: bridge
